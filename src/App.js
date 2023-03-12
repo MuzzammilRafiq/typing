@@ -12,6 +12,7 @@ export default function App() {
 
   const handleKeyDown = (event) => {
     setwords(countWords(message));
+    setPreviousKey(event.key);
     if (event.key === "Backspace" && previouskey !== "Backspace") {
       setErrors(errors + 1);
     }
