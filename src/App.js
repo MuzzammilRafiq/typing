@@ -4,6 +4,7 @@ export default function App() {
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState(0);
   const [words, setwords] = useState(0);
+  const [previouskey, setPreviousKey] = useState("");
 
   const countWords = (str) => {
     return str.replace(/-/g, " ").trim().split(/\s+/g).length;
@@ -11,7 +12,7 @@ export default function App() {
 
   const handleKeyDown = (event) => {
     setwords(countWords(message));
-    if (event.key === "Backspace") {
+    if (event.key === "Backspace" && previouskey !== "Backspace") {
       setErrors(errors + 1);
     }
   };
